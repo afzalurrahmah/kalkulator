@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Kalkulator Sederhana</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="assets/vendor/linearicons/style.css"> -->
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+</head>
+
+<body>
+	<!-- MAIN -->
+	<div class="main">
+		<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div class="panel panel-headline">
+							<div class="panel-heading">
+								<h3 class="panel-title">Kalkulator Sederhana</h3>
+								<p class="panel-subtitle">Silahkan masukkan angka ke dalam masing-masing kolom</p>
+							</div>
+							<br>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-10"><input type="number" class="form-control" placeholder="masukkan angka" id="angka1"></div>
+									<div class="col-md-2"><input type="checkbox" id="cek1"></div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-10"><input type="number" class="form-control" placeholder="masukkan angka" id="angka2"></div>
+									<div class="col-md-2"><input type="checkbox" id="cek2"></div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-10"><input type="number" class="form-control" placeholder="masukkan angka" id="angka3"></div>
+									<div class="col-md-2"><input type="checkbox" id="cek3"></div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-3"><button type="button" class="btn btn-info" id="operator1" value="tambah" onclick="hitung1()">+</button></div>
+									<div class="col-md-3"><button type="button" class="btn btn-success" id="operator2" value="kurang" onclick="hitung2()">-</button></div>
+									<div class="col-md-3"><button type="button" class="btn btn-warning" id="operator3" value="kali" onclick="hitung3()">X</button></div>
+									<div class="col-md-3"><button type="button" class="btn btn-danger" id="operator4" value="bagi" onclick="hitung4()">/</button></div>
+								</div>
+								<br>
+								<hr>
+								<br>
+									<p class="subtitle">Hasil : <div id="hasil"></div></p>
+								
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+			</div>
+		</div>
+		<!-- END MAIN CONTENT -->
+	</div>
+	<!-- END MAIN -->
+	<div class="clearfix"></div>
+	<footer>
+		<div class="container-fluid">
+			<p class="copyright">&copy; 2019 | <a href="https://www.linkedin.com/in/afzalurrahmah/" target="_blank">Afzalurrahmah</a></p>
+		</div>
+	</footer>
+	<!-- Javascript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		
+		function hitung1(){
+
+			var operator	= document.getElementById("operator1").value
+			var hasil 		= document.getElementById("hasil").value
+
+			var cek1		= document.getElementById("cek1").checked
+			var cek2		= document.getElementById("cek2").checked
+			var cek3		= document.getElementById("cek3").checked
+
+			var angka1 = parseInt(document.getElementById("angka1").value)
+			var angka2 = parseInt(document.getElementById("angka2").value)
+			var angka3 = parseInt(document.getElementById("angka3").value)
+
+			if(angka1==''){ angka1=0 }
+			else if(angka2==''){ angka2=0 }
+			else if(angka3==''){ angka3=0 }
+			
+			if(cek1==true && cek2==true && cek3==true){
+				var total = angka1+angka2+angka3
+			}
+			else if(cek1==true && cek2==true){
+				var total = angka1+angka2
+			}
+			else if(cek1==true && cek3==true){
+				var total = angka1+angka3
+			}
+			else if(cek2==true && cek3==true){
+				var total = angka2+angka3
+			}
+			else{ alert("Silahkan checklist minimal 2 kolom input") }
+
+			// document.getElementById("hasil").value = total
+			$('#hasil').html(total);
+			console.log(total)
+			
+		}
+		function hitung2(){
+			var operator	= document.getElementById("operator2").value
+			var hasil 		= document.getElementById("hasil").value
+
+			var cek1		= document.getElementById("cek1").checked
+			var cek2		= document.getElementById("cek2").checked
+			var cek3		= document.getElementById("cek3").checked
+
+			var angka1 = parseInt(document.getElementById("angka1").value)
+			var angka2 = parseInt(document.getElementById("angka2").value)
+			var angka3 = parseInt(document.getElementById("angka3").value)
+
+			if(angka1==''){ angka1=0 }
+			else if(angka2==''){ angka2=0 }
+			else if(angka3==''){ angka3=0 }
+			
+			if(cek1==true && cek2==true && cek3==true){
+				var total = angka1-angka2-angka3
+			}
+			else if(cek1==true && cek2==true){
+				var total = angka1-angka2
+			}
+			else if(cek1==true && cek3==true){
+				var total = angka1-angka3
+			}
+			else if(cek2==true && cek3==true){
+				var total = angka2-angka3
+			}
+			else{ alert("Silahkan checklist minimal 2 kolom input") }
+			
+			$('#hasil').html(total);
+			console.log(total)
+		}
+		function hitung3(){
+			var operator	= document.getElementById("operator3").value
+			var hasil 		= document.getElementById("hasil").value
+
+			var cek1		= document.getElementById("cek1").checked
+			var cek2		= document.getElementById("cek2").checked
+			var cek3		= document.getElementById("cek3").checked
+
+			var angka1 = parseInt(document.getElementById("angka1").value)
+			var angka2 = parseInt(document.getElementById("angka2").value)
+			var angka3 = parseInt(document.getElementById("angka3").value)
+
+			if(angka1==''){ angka1=0 }
+			else if(angka2==''){ angka2=0 }
+			else if(angka3==''){ angka3=0 }
+			
+			if(cek1==true && cek2==true && cek3==true){
+				var total = angka1*angka2*angka3
+			}
+			else if(cek1==true && cek2==true){
+				var total = angka1*angka2
+			}
+			else if(cek1==true && cek3==true){
+				var total = angka1*angka3
+			}
+			else if(cek2==true && cek3==true){
+				var total = angka2*angka3
+			}
+			else{ alert("Silahkan checklist minimal 2 kolom input") }
+			
+			$('#hasil').html(total);
+			console.log(total)
+		}
+		function hitung4(){
+			var operator	= document.getElementById("operator4").value
+			var hasil 		= document.getElementById("hasil").value
+
+			var cek1		= document.getElementById("cek1").checked
+			var cek2		= document.getElementById("cek2").checked
+			var cek3		= document.getElementById("cek3").checked
+
+			var angka1 = parseInt(document.getElementById("angka1").value)
+			var angka2 = parseInt(document.getElementById("angka2").value)
+			var angka3 = parseInt(document.getElementById("angka3").value)
+
+			if(angka1==''){ angka1=0 }
+			else if(angka2==''){ angka2=0 }
+			else if(angka3==''){ angka3=0 }
+			
+			if(cek1==true && cek2==true && cek3==true){
+				var total = angka1/angka2/angka3
+			}
+			else if(cek1==true && cek2==true){
+				var total = angka1/angka2
+			}
+			else if(cek1==true && cek3==true){
+				var total = angka1/angka3
+			}
+			else if(cek2==true && cek3==true){
+				var total = angka2/angka3
+			}
+			else{ alert("Silahkan checklist minimal 2 kolom input") }
+			
+			$('#hasil').html(total);
+			console.log(total)
+		}
+
+		
+
+	</script>
+</body>
+
+</html>
